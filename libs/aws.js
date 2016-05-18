@@ -10,7 +10,7 @@ var uuid = require('uuid');
 function s3Credentials(config, filename) {
   filename = filename || 'uploads/'+uuid.v4()+'/${filename}';
   return {
-    endpoint_url: "https://" + config.bucket + '.s3-us-west-2' + ".s3.amazonaws.com",
+    endpoint_url: "https://" + config.bucket + '.s3-us-west-2' + ".amazonaws.com",
     params: s3Params(config, filename)
   }
 }
