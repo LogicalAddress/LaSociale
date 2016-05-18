@@ -7,15 +7,11 @@ var uuid = require('uuid');
 var s3 = new AWS.S3({
 	region: 'eu-central-1',
 	signatureVersion: 'v4',
+	accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
+	secretAccessKey process.env.AWS_SECRET_ACCESS_KEY || '',
 });
 
-/*
-* Preset in ENV
-* AWSAccessKeyId
-* AWSSecretKey
-*/
-
-/* GET users listing. */
+/* GET sign a url */
 router.get('/sign_request', function(req, res, next) {
 	var params = {
 		Bucket: 'lasociale-static', 
