@@ -18,7 +18,9 @@ router.get('/sign_request', function(req, res, next) {
 		Bucket: 'lasociale-static', 
 		Key: 'uploads/'+uuid.v4()+'/${filename}',
 		ACL: 'public-read',
-		Expires: 86400
+		Expires: 86400,
+		region: 'eu-central-1',
+		signatureVersion: 'v4',
 	};
 	s3.getSignedUrl('putObject', params, function (err, url) {
 		res.status(200);
