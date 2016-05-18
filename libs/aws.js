@@ -10,7 +10,7 @@ var uuid = require('uuid');
 function s3Credentials(config, filename) {
   filename = filename || 'uploads/'+uuid.v4()+'/${filename}';
   return {
-    endpoint_url: "https://" + config.bucket + ".s3.amazonaws.com",
+    endpoint_url: "https://" + config.bucket + '.s3-us-west-2' + ".s3.amazonaws.com",
     params: s3Params(config, filename)
   }
 }
@@ -52,8 +52,8 @@ function s3UploadPolicy(config, filename, credential) {
       { acl: 'public-read' },
       { success_action_status: "201" },
       // Optionally control content type and file size
-      // {'Content-Type': 'application/pdf'},
-      ['content-length-range', 0, 1000000],
+      {'Content-Type': 'image/jpeg'},
+      // ['content-length-range', 0, 1000000],
       { 'x-amz-algorithm': 'AWS4-HMAC-SHA256' },
       { 'x-amz-credential': credential },
       { 'x-amz-date': dateString() + 'T000000Z' }
