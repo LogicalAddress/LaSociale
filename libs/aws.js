@@ -1,4 +1,5 @@
 var crypto = require('crypto');
+var uuid = require('uuid');
 
 // This is the entry function that produces data for the frontend
 // config is hash of S3 configuration:
@@ -7,6 +8,7 @@ var crypto = require('crypto');
 // * accessKey
 // * secretKey
 function s3Credentials(config, filename) {
+  filename = filename || 'uploads/'+uuid.v4()+'/${filename}';
   return {
     endpoint_url: "https://" + config.bucket + ".s3.amazonaws.com",
     params: s3Params(config, filename)
