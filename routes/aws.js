@@ -30,7 +30,7 @@ router.get('/sign_request2', function(req, res, next) {
 	res.status(200);
 	res.json(laSocialAws.s3Credentials({
 		bucket: 'lasociale-static',
-		region: 'us-west-2',
+		region: 'Frankfurt',
 		accessKey: process.env.AWS_ACCESS_KEY_ID,
 		secretKey: process.env.AWS_SECRET_ACCESS_KEY,
 	}));
