@@ -10,7 +10,7 @@ var uuid = require('uuid');
 function s3Credentials(config, filename) {
   filename = filename || 'uploads/'+uuid.v4()+'/${filename}';
   return {
-    endpoint_url: "https://" + config.bucket + '.s3.eu-central-1.amazonaws.com',
+    endpoint_url: "https://" + config.bucket + '.s3.amazonaws.com',
     params: s3Params(config, filename)
   }
 }
@@ -21,6 +21,7 @@ function s3Params(config, filename) {
   var policy = s3UploadPolicy(config, filename, credential);
   var policyBase64 = new Buffer(JSON.stringify(policy)).toString('base64');
   return {
+    AWSAccessKeyId: config.accessKey,
     key: filename,
     acl: 'public-read',
     success_action_status: '201',
