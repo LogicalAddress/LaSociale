@@ -28,7 +28,7 @@ router.get('/sign_request', function(req, res, next) {
 
 router.get('/sign_request2', function(req, res, next) {
 	res.status(200);
-	res.json(laSocialAws({
+	res.json(laSocialAws.s3Credentials({
 		bucket: 'lasociale-static',
 		region: 'us-west-2',
 		accessKey: process.env.AWS_ACCESS_KEY_ID,
