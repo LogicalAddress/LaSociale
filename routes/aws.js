@@ -19,7 +19,7 @@ router.get('/sign_request', function(req, res, next) {
 		ACL: 'public-read',
 		Expires: 86400,
 	};
-	s3.getSignedUrl('putObject', params, function (err, url) {
+	s3.getSignedUrl('postObject', params, function (err, url) {
 		res.status(200);
 		return res.json({signedUrl: url});
 	});
