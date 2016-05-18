@@ -15,11 +15,11 @@ var s3 = new AWS.S3({
 router.get('/sign_request', function(req, res, next) {
 	var params = {
 		Bucket: 'lasociale-static', 
-		Key: 'uploads/'+uuid.v4()+'/${filename}',
+		Key: 'uploads/'+uuid.v4()+'.jpg',
 		ACL: 'public-read',
 		Expires: 86400,
 	};
-	s3.getSignedUrl('postObject', params, function (err, url) {
+	s3.getSignedUrl('putObject', params, function (err, url) {
 		res.status(200);
 		return res.json({signedUrl: url});
 	});
