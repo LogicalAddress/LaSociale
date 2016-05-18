@@ -1,9 +1,13 @@
 var express = require('express');
 var router = express.Router();
 var AWS = require('aws-sdk');
-AWS.config.region = 'us-west-2';
-var s3 = new AWS.S3();
 var uuid = require('uuid');
+
+
+var s3 = new AWS.S3({
+	region: 'eu-central-1',
+	signatureVersion: 'v4',
+});
 
 /*
 * Preset in ENV
@@ -18,8 +22,6 @@ router.get('/sign_request', function(req, res, next) {
 		Key: 'uploads/'+uuid.v4()+'/${filename}',
 		ACL: 'public-read',
 		Expires: 86400,
-		region: 'eu-central-1',
-		signatureVersion: 'v4'
 	};
 	s3.getSignedUrl('putObject', params, function (err, url) {
 		res.status(200);
