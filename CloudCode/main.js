@@ -15,6 +15,7 @@ Parse.Cloud.define("ratePost", function(request, response) {
 	  	var rating = post.get("rating") || 0;
 	  	post.set("rating", (rating + request.params.rating) / (rating + 1));
 	  	post.increment("rateCount");
+	  	post.add("ratings", request.params.rating);
 	  	post.save();
 	  	return response.success("ok");
 	  },
