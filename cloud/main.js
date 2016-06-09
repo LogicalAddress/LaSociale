@@ -8,7 +8,7 @@ Parse.Cloud.define("ratePost", function(request, response) {
 	if (request.params.objectId === undefined || request.params.rating == undefined) {
 		return response.error("Invalid Request");
 	}
-  	var Post = Parse.Object.extend("Post");
+  	var Post = Parse.Object.extend("Posts");
 	var query = new Parse.Query(Post);
 	query.get(request.params.objectId, {
 	  success: function(post) {
