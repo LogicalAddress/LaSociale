@@ -5,7 +5,7 @@ Logical Address Gone Social
 ```
 parse-dashboard --appId test --masterKey test --serverURL "http://localhost:1337/parse" --appName gorilla
 ```
-#Cloud Code
+##Cloud Code
 ```
 curl -X POST \
 	-H "X-Parse-Application-Id: test" \
