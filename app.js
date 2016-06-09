@@ -38,7 +38,7 @@ if (process.env.APNS_ENABLE) {
 
 var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://localhost:27017/lasociale', // Connection string for your MongoDB database
-  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/CloudCode/main.js', // Absolute path to your Cloud Code
+  cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js', // Absolute path to your Cloud Code
   appId: process.env.APP_ID || 'test',
   masterKey: process.env.MASTER_KEY || 'test', // Keep this key secret!
   push: pushConfig,
@@ -49,7 +49,7 @@ var api = new ParseServer({
   filesAdapter: new S3Adapter(
     process.env.AWS_ACCESS_KEY_ID || "S3_ACCESS_KEY",
     process.env.AWS_SECRET_ACCESS_KEY || "S3_SECRET_KEY",
-    process.env.AWS_BUCKET || "lasociale",
+    process.env.AWS_BUCKET || "lasociale-dev",
     {region: "us-west-2", bucketPrefix: "uploads/", directAccess: true}
   ),
 });
