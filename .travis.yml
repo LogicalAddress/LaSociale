@@ -17,7 +17,6 @@ deploy:
   secret-access-key:
     secure: lI/A315/o8/gCXPjDdf48QqZy8lEUyN8YbzIngj57lietDRJisRyh6273ZVmmxPVdhQV5tkgwySvyL8P0ZggBNYtARtKD/g5qOHVW8spgFLy+0mGc9cm21MOH2XFJnSKg+zZ77RA5RSZ24Hq6lkDMQDjYfndioHyTgG7eeUb1HjV7watagArjJ7i6BP7mlebw/79+HMJoml1n83cOVC73dD1dW9wnGqm1H7nEBvAt9kivmPdVuldTahQGbjtQJR4NlIEAGm+Wvyx7BEGJVTX/p6Oke3JHg+jof8UOqeszZiAdp7QgaitEz04wO9YmjiyCO+jUe5iQ991p3LTgYAIkWVGBAMfilwlHQgF8RUoh+cbE4NmE6RxT+ooRUB5qXrCy9ZNl9E95/knuaAoBpvE0kSTcRlp6K9fscZ+nGVecFCR8trOykWt8aMaAADqsSXY3aa6Hq2Bbf1AVC83zBTAb6vgdSPRxZlUxy6l8tglwK32Bte93mFzsiO4B5S3YyeTDL8u+4/r/c2ZL+2eFbyH2QZhPBshPF2s8EAMnTLeyBhcKoAAq9C+z9UFOHeS+2QyvL5GOG9Csz8sdmXP6MaxL7KFWGuYaOmepbPAEep13yE0IrFRq/nNNpAgJ/wmzQvQamAl4MIINYgSBNKmlcRLE+q5rG9IK72ou+dLzcIBA1I=
   app: lasociale
-  bucket_name: elasticbeanstalk-us-west-2-393341108492
   region: us-west-2
   env: lasociale-dev
   on:
