@@ -12,5 +12,26 @@ describe('Verifying.. Server Configuration', function() {
   		// Parse.
   		done();
   	});
+  	it('user 2', function(done) {
+  		var user = config.special_users[1];
+  		expect(user.username).to.equal('retnan');
+  		expect(user.handle).to.equal("Retnan");
+  		// Parse.
+  		done();
+  	});
+  	it('user 3', function(done) {
+  		var user = config.special_users[2];
+  		expect(user.username).to.equal('daser');
+  		expect(user.handle).to.equal("Daser");
+  		// Parse.
+  		done();
+  	});
+  	it('user 4', function(done) {
+  		var user = config.special_users[3];
+  		expect(user.username).to.equal('lasociale');
+  		expect(user.handle).to.equal("Lasociale");
+  		// Parse.
+  		done();
+  	});
   });
 });
