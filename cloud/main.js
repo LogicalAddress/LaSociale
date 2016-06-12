@@ -1,28 +1,44 @@
+var ParseCloudLib = require('../libs/cloudlib');
+
 Parse.Cloud.define('hello', function(req, res) {
 	res.success('Hi');
 });
 
+Parse.Cloud.afterDelete("Posts", function(req) {
+	var objectId = req.object.id;
+});
 
-Parse.Cloud.define("ratePost", function(request, response) {
+Parse.Cloud.afterSave("Posts", function(req) {
+	var objectId = req.object.id;
+});
 
-	if (request.params.objectId === undefined || request.params.rating == undefined) {
-		return response.error("Invalid Request");
+Parse.Cloud.afterSave("Comment", function(req) {
+	var objectId = req.object.id;
+});
+
+Parse.Cloud.define('doPostLogin', function(req, res){
+	if(Parse.User.current() !== undefined && Parse.User.current().id !== undefined){
+		objectId = Parse.User.current().id;
+		ParseCloudLib.doPostLogin(objectId).then(function(response){
+			return res.success(response);
+		}, function(error){
+			return req.error(error);
+		});
+	}else{
+		return req.error("Login is required");
 	}
-  	var Post = Parse.Object.extend("Posts");
-	var query = new Parse.Query(Post);
-	query.get(request.params.objectId, {
-	  success: function(post) {
-	  	var rating = post.get("rating") || 0;
-	  	post.set("rating", (rating + request.params.rating) / (rating + 1));
-	  	post.increment("rateCount");
-	  	post.add("ratings", request.params.rating);
-	  	post.save();
-	  	return response.success("ok");
-	  },
-	  error: function(object, error) {
-	    // The object was not retrieved successfully.
-	    // error is a Parse.Error with an error code and message.
-	    return response.error(error);
-	  }
+});
+
+Parse.Cloud.define("ratePost", function(req, res) {
+	if(Parse.User.current() === undefined || Parse.User.current().id === undefined ||
+		req.params.objectId === undefined || req.params.rating === undefined){
+		return req.error("Invalid Request");
+	}
+	var userObjectId = Parse.User.current().id;
+	var postParams = {	objectId: req.params.objectId,	rating: req.params.rating };
+	ParseCloudLib.doRatePost(userId, postParams).then(function(response){
+		return res.success(response);
+	}, function(error){
+		return req.error(error);
 	});
 });
