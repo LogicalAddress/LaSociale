@@ -7,6 +7,7 @@ var stylish = require('jshint-stylish');
 
 var packageJSON  = require('./package');
 var jshintConfig = packageJSON.jshintConfig;
+//jshintConfig: https://github.com/jshint/jshint/blob/master/examples/.jshintrc
 jshintConfig.lookup = false;
 
 gulp.task('lint', function() {
