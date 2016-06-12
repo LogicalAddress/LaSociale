@@ -19,16 +19,22 @@
     "parse": "^1.8.5",
     "parse-server": "^2.2.10",
     "serve-favicon": "~2.3.0",
-    "uuid": "^2.0.2"
+    "uuid": "^2.0.2",
+    "underscore": "*"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
+    "gulp-connect": "^4.0.0",
     "gulp-jshint": "^2.0.1",
+    "gulp-mocha": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-watch": "^4.3.6",
     "jshint": "^2.9.2",
-    "jshint-stylish": "^2.2.0"
+    "jshint-stylish": "^2.2.0",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4"
   },
   "jshintConfig": {
     "sub": true
