@@ -5,15 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
 var ParseServer = require('parse-server').ParseServer;
 var app = express();
 
 var S3Adapter = require('parse-server').S3Adapter;
 
-var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI
+var databaseUri = process.env.DATABASE_URI || process.env.MONGOLAB_URI;
 
 if (!databaseUri) {
   console.log('DATABASE_URI not specified, falling back to localhost.');
@@ -33,7 +30,7 @@ if (process.env.APNS_ENABLE) {
             bundleId: 'beta.codepath.parsetesting',  // change to match bundleId
             production: false // dev certificate
         }
-    ]
+    ];
 }
 
 var api = new ParseServer({
@@ -68,9 +65,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
@@ -101,6 +95,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+require('./bootstrap')(app);
 
 var port = process.env.PORT || 1337;
 var httpServer = require('http').createServer(app);
