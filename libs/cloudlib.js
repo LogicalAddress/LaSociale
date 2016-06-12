@@ -5,7 +5,7 @@ function CloudLib(){}
 CloudLib.prototype.doPostLogin = function(userId) {
 	var promise = new Parse.Promise();
 	var query = new Parse.Query(Parse.Installation);
-	query.equalTo('user_id', userId)
+	query.equalTo('user_id', userId);
 	// var query = new Parse.Query("User").equalTo("registrationId", randomString);
 	// promise.reject(error);
 	// promise.resolve(result);
