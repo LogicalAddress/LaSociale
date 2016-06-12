@@ -1,11 +1,11 @@
-# LaSociale
+## LaSociale
 Logical Address Gone Social
 
-#Local Debuging
+##Local Debuging
 ```
 parse-dashboard --appId test --masterKey test --serverURL "http://localhost:1337/parse" --appName gorilla
 ```
-##Cloud Code
+###Cloud Code
 ```
 curl -X POST \
 	-H "X-Parse-Application-Id: test" \
@@ -20,4 +20,8 @@ curl -X POST \
   -H "X-Parse-REST-API-Key: test" \
   -H "Content-Type: application/json" \
   http://localhost:1337/parse/functions/hello
+```
+## Special Users
+```
+['logicaladdress','retnan','daser','lasociale'];
 ```
