@@ -27,6 +27,7 @@
     "chai": "^3.5.0",
     "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
+    "gulp-util": "*",
     "gulp-connect": "^4.0.0",
     "gulp-jshint": "^2.0.1",
     "gulp-mocha": "^2.2.0",
